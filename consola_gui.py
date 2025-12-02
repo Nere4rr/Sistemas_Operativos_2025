@@ -1,10 +1,12 @@
 import os
 import sys
 import time 
-from so_logica import Proceso, Particion, Simulador
-from colorama import Fore, Style, init
+from so_logica import Proceso, Particion, Simulador # Lógica central del sistema operativo
+from colorama import Fore, Style, init # Herramientas visuales
 from datetime import datetime
 import getpass
+
+# Definen metadatos del proyecto (GRUPO, FACULTAD, INTEGRANTES)
 
 GRUPO = "(que)S.O."
 FACULTAD = "UTN - Universidad Tecnológica Nacional"
@@ -17,6 +19,7 @@ INTEGRANTES = [
      "Valussi Melendes, Fabrizio Francisco",
  ]
 
+# Interfaz decorativa
 def print_ascii_art():
     """Pingüino de queso + título del simulador"""
     print(Fore.YELLOW + Style.BRIGHT + r"""
@@ -104,6 +107,8 @@ def print_banner():
     print(Fore.CYAN + "╚" + "═" * (ancho - 2) + "╝" + Style.RESET_ALL)
     print()
 
+# Definen cómo arranca la
+# memoria antes del primer proceso.
 particiones_iniciales = [
     Particion("SO", 0, 100),
     Particion("G", 100, 250),
@@ -118,8 +123,11 @@ particiones_iniciales = [
 #     Proceso("P4", 40, 3, 5),
 # ]
 
-GRADO_MULTIPROG = 5
+GRADO_MULTIPROG = 5 # Limita cuántos procesos pueden convivir simultáneamente
 
+ 
+# Recibe un archivo .txt con procesos, valida cada línea, revisa formato, convierte tamaños
+# y tiempos a enteros y, si todo está correcto, genera objetos Proceso
 def cargar_desde_archivo(nombre_archivo):
     procesos = []
     print(f"\n--- CARGANDO%: {nombre_archivo} ---")
@@ -157,9 +165,11 @@ def cargar_desde_archivo(nombre_archivo):
         print(f"ERROR archivo no encontrado '{nombre_archivo}'.")
         return []
 
+# Formatean el estado de memoria para que cada tick sea claro y legible
 def limpiar_pantalla():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+# transforma las cadenas retornadas por la lógica en columnas legibles y calcula fragmentación interna para mostrar
 def imprimir_tabla_particiones(particiones_str):
     print("\n--- TABLA DE PARTICIONES ---")
     print(f"{'PARTICION':<10} | {'TAMAÑO':<8} | {'PROCESO':<10} | {'FRAG. INT.'}")
@@ -172,6 +182,7 @@ def imprimir_tabla_particiones(particiones_str):
         except:
             print(p_str) 
 
+# Calcula métricas como tiempo de retorno, espera y el rendimiento general del sistema
 def mostrar_estadisticas_finales(terminados, tiempo_total):
     print("\n\n==========================================")
     print("          INFORME ESTADÍSTICO FINAL       ")
@@ -247,8 +258,9 @@ def main():
     except KeyboardInterrupt:
         print("\n\n Simulación interrumpida por el usuario.")
 
+     
     mostrar_estadisticas_finales(simulador.terminados, simulador.tiempo)
-    input("\nPresiona ENTER para cerrar.")
+    input("\nPresiona ENTER para cerrar.") 
 
 if __name__ == "__main__":
     main()
