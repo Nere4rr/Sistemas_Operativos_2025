@@ -27,27 +27,6 @@ El simulador reproduce el **ciclo de vida de un proceso** desde su ingreso al si
 
 ---
 
-## 📁 Estructura del proyecto
-📂 Simulador-Memoria-Procesos/
-├── main.py # Programa principal del simulador
-├── proceso.py # Clase que define un proceso
-
-├── particion.py # Clase que define una partición de memoria
-
-├── planificador.py # Lógica del algoritmo SRTF
-
-├── memoria.py # Gestión de particiones y asignación Best-Fit
-
-├── procesos.txt # Archivo de entrada con procesos de prueba
-
-├── README.md # Este archivo :)
-
-    └── docs/
-
-├── howto.pdf # Guía de uso para ejecutar el simulador
-
-    └── informe_final.pdf # Informe con resultados y conclusiones
-
 El simulador leerá automáticamente el archivo procesos.txt y mostrará los eventos de la simulación paso a paso:
 
 Llegada de nuevos procesos.
@@ -75,7 +54,11 @@ Equipo: [que(SO) / integrantes]
 📚 Facultad Regional Resistencia – UTN
 📆 Año: 2025
 📘 Materia: Sistemas Operativos
-👩‍🏫 Docentes: [pupi]
+👩‍🏫 Docentes:
+Ing. Liliana CUENCA PLETSCH
+Dr. Sergio GRAMAJO
+Ing. ROA Jorge Alejandro
+Ing. VIGIL Rodrigo
 
 🏁 Estado del proyecto
 
@@ -83,3 +66,5 @@ Equipo: [que(SO) / integrantes]
 📅 Avance 1: Base del simulador + lectura de procesos
 📅 Avance 2: Integración Best-Fit y SRTF
 📅 Entrega final: 02/12/2025
+
+✅ Completado 2/12/2025
